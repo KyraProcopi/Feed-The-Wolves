@@ -47,8 +47,6 @@ wolf_main := class(npc_behavior):
 
     # This function runs when the NPC is spawned in the world and ready to follow a behavior.
     OnBegin<override>()<suspends>:void =
-        #MeatManage.GetIsMeatDropped()
-        #Print("Getting Meat Dropped")
 
         if:
             # Get the Agent (the NPC).
@@ -77,7 +75,6 @@ wolf_main := class(npc_behavior):
                 loop:
                     MeatManage.GetIsMeatDropped()
                     if (not MeatManage.ConditionalB.IsHoldingItem[PlayerList[0]]):
-                    #if(MeatManage.boolisMeatDropped = 1):
                         Sleep(0.1)
                         if(not Character.IsActive[]):
                             break
@@ -91,8 +88,7 @@ wolf_main := class(npc_behavior):
                             Sleep(5.0)
                             break
 
-                    #if (MeatManage.ConditionalB.IsHoldingItem[MeatManage.PlayerList[0]]):    
-                    #if(MeatManage.boolisMeatDropped = 0):      
+                    #if (MeatManage.ConditionalB.IsHoldingItem[MeatManage.PlayerList[0]]):         
                         if (NavTargetCurrent := NavList[0]):
                             set Index = 1-Index
                             if(Index=1):
